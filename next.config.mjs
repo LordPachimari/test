@@ -17,7 +17,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  serverComponentsExternalPackages: ["libsql"],
+  experimental: {
+    serverComponentsExternalPackages: ["libsql"],
+  },
 };
 
 export default config;
