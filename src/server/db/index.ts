@@ -4,8 +4,8 @@ import { User } from "./schema";
 export const TEST = "test";
 export * from "./schema";
 const client = createClient({
-  url: "libsql://whatever.turso.io",
-  authToken: "",
+  url: process.env.DATABASE_URL ?? "",
+  authToken: process.env.DATABASE_AUTH_TOKEN ?? "",
 });
 export const schema = {
   User,

@@ -1,12 +1,13 @@
-import { type Config } from "drizzle-kit";
-
-import { env } from "~/env.mjs";
+import type { Config } from "drizzle-kit";
 
 export default {
-  schema: "./src/server/db/schema.ts",
-  driver: "mysql2",
+  schema: "./src/server/db/*.ts",
+  driver: "turso",
   dbCredentials: {
-    connectionString: env.DATABASE_URL,
+    url: process.env.DATABASE_URL || "",
+    authToken: process.env.DATABASE_AUTH_TOKEN || "",
   },
-  tablesFilter: ["test_*"],
+  strict: true,
+  out: "./drizzle",
+  verbose: true,
 } satisfies Config;
